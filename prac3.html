@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <script>
+        function validateForm(){
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            var emailex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
+            var passwordex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if(!emailex.test(email)){
+                alert("Email address should contain '@' symbol and a dot along with top level domain.");
+                return false;
+            }
+
+            if(!passwordex.test(password)){
+                alert("Password should contain at least one uppercase letter, at least one lowercase letter, at least one digit and at least one special character.");
+                return false;
+            }
+
+            return true;            
+        }
+    </script>
+</head>
+<body>
+    <h1>Login Form</h1>
+    <form onsubmit="return validateForm()">
+        <label for="email">EmailID: </label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="password">Password: </label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
